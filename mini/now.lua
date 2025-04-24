@@ -23,6 +23,30 @@ require("mini.base16").setup({
 	use_cterm = true,
 })
 
+-- ensure window separators aren't bold ----------------------------------------
+
+vim.api.nvim_set_hl(0, 'WinSeparator', {
+    fg = MiniBase16.config.palette.base03,
+    bg = 'NONE',
+    --ctermfg = 'NONE',
+    --ctermbg = 'NONE'
+})
+
+-- ensure tabs are bland -------------------------------------------------------
+
+vim.api.nvim_set_hl(0, 'TabLine', {
+    fg = MiniBase16.config.palette.base04,
+    bg = MiniBase16.config.palette.base02
+})
+vim.api.nvim_set_hl(0, 'TabLineSel', {
+    fg = MiniBase16.config.palette.base02,
+    bg = MiniBase16.config.palette.base04,
+    bold = true
+})
+vim.api.nvim_set_hl(0, 'TabLineFill', {
+    bg = MiniBase16.config.palette.base02
+})
+
 
 -- mini.notify =================================================================
 
@@ -30,6 +54,8 @@ require("mini.notify").setup({
 	window = { config = { border = vim.g.border_style } },
 })
 vim.notify = MiniNotify.make_notify()
+
+vim.notify("hello")
 
 
 -- mini.starter ================================================================
@@ -57,6 +83,3 @@ require("mini.icons").setup({
 })
 
 MiniIcons.mock_nvim_web_devicons()
-
---:lua print(vim.inspect(MiniIcons.list("extension")))
---:lua print(MiniIcons.get("exe"))

@@ -30,47 +30,16 @@ end
 
 require('mini.deps').setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
-local source = function(path) dofile(path_source .. path) end
-
-
--- settings, functions & mappings ==============================================
-
-now(function() source('options.lua') end)
-now(function() source('functions.lua') end)
-now(function() source('mappings.lua') end)
 
 
 -- mini.nvim ===================================================================
 
 add({ name = 'mini.nvim', checkout = 'HEAD' })
-now(function()   source('mini/now.lua')   end)
-later(function() source('mini/later.lua') end)
+now(function()   dofile(vim.fn.stdpath('config') .. '/mini/now.lua')   end)
+later(function() dofile(vim.fn.stdpath('config') .. '/mini/later.lua') end)
 
 
--- plugins =====================================================================
+-- language tools ==============================================================
 
--- avante: ai powered editing
-later(function() source('plugins/avante.lua') end)
-
--- treesitter: advanced syntax parsing, highlighting & text objects
-later(function() source('plugins/treesitter.lua') end)
-
--- mason: lsp / formater / linter package manager
-later(function() source('plugins/mason.lua') end)
-
--- cmp: completion
-later(function() source('plugins/cmp.lua') end)
-
--- conform: formatting
-later(function() source('plugins/formatter.lua') end)
-
--- lspconfig: language server configurations
-later(function() source('plugins/lspconfig.lua') end)
-
--- slime: send buffer code to repl
-later(function() source('plugins/slime.lua') end)
-
--- tmux: tmux navigation
-later(function() source('plugins/tmux.lua') end)
-
--- stylua: ignore end
+--now(function() source('lsp.lua') end)
+--now(function() source('completion.lua') end)
