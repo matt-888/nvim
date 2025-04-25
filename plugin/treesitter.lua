@@ -27,7 +27,10 @@ MiniDeps.add({
   checkout = 'master',
   hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
 })
-MiniDeps.add({ source = 'nvim-treesitter/nvim-treesitter-textobjects' })
+
+MiniDeps.add({
+  source = 'nvim-treesitter/nvim-treesitter-textobjects'
+})
 
 require('nvim-treesitter.configs').setup({
   ensure_installed = ensure_installed,

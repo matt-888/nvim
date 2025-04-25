@@ -2,27 +2,10 @@
 
 -- general =====================================================================
 
--- create helper functions
-
-local keymap = function(mode, keys, cmd, opts)
-	opts = opts or {}
-	if opts.silent == nil then
-		opts.silent = true
-	end
-	vim.keymap.set(mode, keys, cmd, opts)
-end
-
-local nmap_leader = function(suffix, rhs, desc, opts)
-  opts = opts or {}
-  opts.desc = desc
-  vim.keymap.set('n', '<Leader>' .. suffix, rhs, opts)
-end
-
-local xmap_leader = function(suffix, rhs, desc, opts)
-  opts = opts or {}
-  opts.desc = desc
-  vim.keymap.set('x', '<Leader>' .. suffix, rhs, opts)
-end
+-- helper functions
+local keymap      = _G.keymap
+local nmap_leader = _G.nmap_leader
+local xmap_leader = _G.xmap_leader
 
 -- move inside completion list with <TAB>
 keymap("i", [[<Tab>]], [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
@@ -54,12 +37,13 @@ _G.Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>l', desc = '+lsp' },
   { mode = 'n', keys = '<Leader>m', desc = '+map' },
   --{ mode = 'n', keys = '<Leader>o', desc = '+other' },
+  { mode = 'n', keys = '<Leader>t', desc = '+tools' }, -- language tools
   { mode = 'n', keys = '<Leader>v', desc = '+visits' },
   { mode = 'n', keys = '<Leader>w', desc = '+windows' },
   { mode = 'x', keys = '<Leader>l', desc = '+lsp' },
 }
 
--- misc -------------------------------------------------------------------------------------------
+-- misc ------------------------------------------------------------------------------------------------------
 nmap_leader('<leader>', '<Plug>SlimeParagraphSend', 'send paragraph')
 xmap_leader('<leader>', '<Plug>SlimeRegionSend',    'send selection')
 
@@ -107,7 +91,7 @@ nmap_leader('fV', '<Cmd>Pick visit_paths preserve_order=true<CR>',        'visit
 -- l for lsp (and format) -------------------------------------------------------------------------
 nmap_leader('la', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', 'arguments popup')
 nmap_leader('ld', '<Cmd>lua vim.diagnostic.open_float()<CR>',  'diagnostics popup')
-nmap_leader('lf', '<Cmd>Format<CR>',                           'format')
+--nmap_leader('lf', 'conform.format()',                           'format')
 nmap_leader('li', '<Cmd>lua vim.lsp.buf.hover()<CR>',          'information')
 nmap_leader('lj', '<Cmd>lua vim.diagnostic.goto_next()<CR>',   'next diagnostic')
 nmap_leader('lk', '<Cmd>lua vim.diagnostic.goto_prev()<CR>',   'prev diagnostic')
