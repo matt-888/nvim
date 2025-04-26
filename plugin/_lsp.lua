@@ -15,13 +15,6 @@ end
 
 -- aesthetics ==================================================================
 
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = vim.g.border_style
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 vim.diagnostic.config({
   virtual_text = true
 })

@@ -9,7 +9,10 @@ MiniDeps.add({
 
 require("blink.cmp").setup({
 
-  fuzzy = { implementation = 'lua' },
+  fuzzy = {
+    implementation = 'lua',
+    sorts = { 'exact' }
+  },
 
   sources = {
     default = {
@@ -44,16 +47,13 @@ require("blink.cmp").setup({
     },
   },
 
-  signature = { window = { border = vim.g.border_style } },
-
   completion = {
     trigger = { show_in_snippet = true },
     menu = {
       min_width = 1,
-      border = vim.g.border_style,
       scrollbar = false,
       draw = {
-        columns = { { 'label', 'kind_icon', 'label_description', gap = 1 } },
+        columns = { { 'label', 'label_description', 'kind_icon', gap = 1 } },
         components = {
           kind_icon = {
             text = function(ctx)
@@ -76,7 +76,6 @@ require("blink.cmp").setup({
     },
     documentation = {
       auto_show = true,
-      window = { border = vim.g.border_style }
     }
   },
 

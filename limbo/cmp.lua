@@ -26,11 +26,6 @@ cmp.setup({
 		end,
 	},
 
-	window = {
-		completion = { border = vim.g.border_style },
-		documentation = { border = vim.g.border_style },
-	},
-
 	matching = { disallow_fuzzy_matching = true },
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },

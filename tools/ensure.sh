@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 BIN="$XDG_BIN_HOME"
 SCRIPT_DIR="$(dirname "${0}")"

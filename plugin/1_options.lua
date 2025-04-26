@@ -18,7 +18,7 @@ vim.cmd('filetype plugin indent on') -- enable all filetype plugins
 
 -- aesthetics ==================================================================
 
-vim.g.border_style   = 'rounded' -- set global variable for border style that can be accessed elsewhere
+vim.o.winborder      = 'rounded' -- make all window borders rounded
 vim.o.breakindent    = true      -- indent wrapped lines to match line start
 vim.o.colorcolumn    = '+1'      -- draw colored column one step to the right of desired maximum width
 vim.o.cursorline     = true      -- enable highlighting of the current line

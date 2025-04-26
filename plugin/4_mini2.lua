@@ -63,7 +63,6 @@ miniclue.setup({ --stylua: ignore start
     { mode = 'x', keys = 'z' },
   },
   window = {
-		config = { border = vim.g.border_style },
 		delay = 200,
 	},
 }) --stylua: ignore end
@@ -87,12 +86,6 @@ vim.keymap.set('n', 'ghy', rhs, { expr = true, remap = true, desc = "Copy hunk's
 require('mini.files').setup({ windows = { preview = true } })
 
 local minifiles_augroup = vim.api.nvim_create_augroup('ec-mini-files', {})
-
-vim.api.nvim_create_autocmd('User', {
-  group = minifiles_augroup,
-  pattern = 'MiniFilesWindowOpen',
-  callback = function(args) vim.api.nvim_win_set_config(args.data.win_id, { border = vim.g.border_style }) end,
-})
 
 vim.api.nvim_create_autocmd('User', {
   group = minifiles_augroup,
@@ -179,7 +172,7 @@ vim.keymap.set('i', '<CR>', 'v:lua.Config.cr_action()', { expr = true })
 
 -- mini.pick ==================================================================
 
-require('mini.pick').setup({ window = { config = { border = vim.g.border_style } } })
+require('mini.pick').setup()
 vim.ui.select = MiniPick.ui_select
 vim.keymap.set('n', ',', [[<Cmd>Pick buf_lines scope='current' preserve_order=true<CR>]], { nowait = true })
 
@@ -196,9 +189,6 @@ vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 require('mini.trailspace').setup()
 
 
+
 -- mini.visits ================================================================
 require('mini.visits').setup()
-
-
--- put here to match two file setup
-MiniIcons.tweak_lsp_kind()

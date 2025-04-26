@@ -13,3 +13,13 @@ require('conform').setup({
     lsp_format = "fallback",
   },
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("TrailspaceOnSave", { clear = true }),
+  callback = function()
+    if vim.bo.buftype == "" then
+      MiniTrailspace.trim()
+    end
+  end,
+  desc = "remove trailing whitespace on save",
+})

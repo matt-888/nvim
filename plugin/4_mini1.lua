@@ -50,9 +50,7 @@ vim.api.nvim_set_hl(0, 'TabLineFill', {
 
 -- mini.notify =================================================================
 
-require("mini.notify").setup({
-	window = { config = { border = vim.g.border_style } },
-})
+require("mini.notify").setup()
 vim.notify = MiniNotify.make_notify()
 
 
@@ -81,3 +79,4 @@ require("mini.icons").setup({
 })
 
 MiniIcons.mock_nvim_web_devicons()
+MiniIcons.tweak_lsp_kind()
