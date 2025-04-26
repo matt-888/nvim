@@ -14,13 +14,13 @@ require("blink.cmp").setup({
   sources = {
     default = {
       'lsp', 'path', 'snippets', 'buffer',
-      'tmux'
+      --'tmux'
     },
     providers = {
-          tmux = {
-            module = "blink-cmp-tmux",
-            name = "tmux",
-          },
+          --tmux = {
+          --  module = "blink-cmp-tmux",
+          --  name = "tmux",
+          --},
   },
   },
 
@@ -49,9 +49,11 @@ require("blink.cmp").setup({
   completion = {
     trigger = { show_in_snippet = true },
     menu = {
+      min_width = 1,
       border = vim.g.border_style,
       scrollbar = false,
       draw = {
+        columns = { { 'label', 'kind_icon', 'label_description', gap = 1 } },
         components = {
           kind_icon = {
             text = function(ctx)
