@@ -31,13 +31,14 @@ keymap({ "n", "x" }, "]p", '<Cmd>exe "put "  . v:register<CR>', { desc = "paste 
 
 _G.Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>a', desc = '+avante' },
-  { mode = 'n', keys = '<Leader>b', desc = '+buffer' },
+  { mode = 'n', keys = '<Leader>b', desc = '+buffers' },
   { mode = 'n', keys = '<Leader>e', desc = '+explore' },
   { mode = 'n', keys = '<Leader>f', desc = '+find' },
   { mode = 'n', keys = '<Leader>l', desc = '+lsp' },
   { mode = 'n', keys = '<Leader>m', desc = '+map' },
   --{ mode = 'n', keys = '<Leader>o', desc = '+other' },
-  { mode = 'n', keys = '<Leader>t', desc = '+tools' }, -- language tools
+  { mode = 'n', keys = '<Leader>s', desc = '+special' }, -- specific language tools
+  { mode = 'n', keys = '<Leader>t', desc = '+tabs' },
   { mode = 'n', keys = '<Leader>v', desc = '+visits' },
   { mode = 'n', keys = '<Leader>w', desc = '+windows' },
   { mode = 'x', keys = '<Leader>l', desc = '+lsp' },
@@ -108,7 +109,17 @@ nmap_leader('mr', '<Cmd>lua MiniMap.refresh()<CR>',      'refresh')
 nmap_leader('ms', '<Cmd>lua MiniMap.toggle_side()<CR>',  'side (toggle)')
 nmap_leader('mt', '<Cmd>lua MiniMap.toggle()<CR>',       'toggle')
 
--- o for other -----------------------------------------------------------------------------------------------
+-- o for other ------------------------------------------------------------------------------------
+
+-- s for special ----------------------------------------------------------------------------------
+-- define in /after/ftplugin
+
+-- t for tabs -------------------------------------------------------------------------------------
+-- gt gT #gt
+nmap_leader('tn', '<Cmd>tabnew<CR>',     'new')
+nmap_leader('tc', '<Cmd>tabc<CR>',       'close')
+nmap_leader('to', '<Cmd>tabo<CR>',       'close other')
+--nmap_leader('td', '<Cmd>tabdo<CR>',       'do')
 
 -- v for visits -----------------------------------------------------------------------------------
 nmap_leader('vv', '<Cmd>lua MiniVisits.add_label("core")<CR>',    'add "core" label')
@@ -128,6 +139,11 @@ map_pick_core('vC', nil, 'core visits (cwd)')
 -- w for windows ---------------------------------------------------------------------------------------------
 nmap_leader('wv', '<Cmd>vsplit<CR>',                   'vertical')
 nmap_leader('wh', '<Cmd>split<CR>',                    'horizontal')
+nmap_leader('wt', '<C-w>T',                            'tab')
 nmap_leader('wc', '<Cmd>close<CR>',                    'close')
+nmap_leader('wm', '<Cmd>wincmd _ | wincmd |<CR>',      'max')
+nmap_leader('w_', '<C-w>_',                            'max vertical')
+nmap_leader('w|', '<C-w>|',                            'max vertical')
+nmap_leader('w=', '<C-w>=',                            'reset')
 
 -- stylua: ignore end
