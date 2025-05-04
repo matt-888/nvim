@@ -1,0 +1,14 @@
+return {
+  ["avante.nvim"] = "f755861d939df35b9d28ca3eb667af798750747f",
+  ["blink.cmp"] = "07a09acac1775b95f6fa9e624c9799e1b3bdfdca",
+  ["conform.nvim"] = "372fc521f8421b7830ea6db4d6ea3bae1c77548c",
+  ["dressing.nvim"] = "2d7c2db2507fa3c4956142ee607431ddb2828639",
+  ["friendly-snippets"] = "31f2a2657b6261724313281fe0d8ba6f43f4a4fa",
+  ["mini.nvim"] = "a8b1d74f45dadf3554c0eed784c6ccd8ade67883",
+  ["nui.nvim"] = "8d3bce9764e627b62b07424e0df77f680d47ffdb",
+  ["nvim-tmux-navigation"] = "4898c98702954439233fdaf764c39636681e2861",
+  ["nvim-treesitter"] = "684eeac91ed8e297685a97ef70031d19ac1de25a",
+  ["nvim-treesitter-textobjects"] = "205e3369bc83d8cb83f7409c36120e24611f8c5c",
+  ["plenary.nvim"] = "857c5ac632080dba10aae49dba902ce3abf91b35",
+  ["vim-slime"] = "9bc2e13f8441b09fd7352a11629a4da0ea4cb058"
+}

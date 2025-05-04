@@ -2,7 +2,7 @@ MiniDeps.add({
   source = 'saghen/blink.cmp',
   depends = {
     'rafamadriz/friendly-snippets',
-    'mgalliou/blink-cmp-tmux'
+    --'mgalliou/blink-cmp-tmux'
   },
   checkout = 'v1.1.1'
 })
@@ -11,7 +11,11 @@ require("blink.cmp").setup({
 
   fuzzy = {
     implementation = 'lua',
-    sorts = { 'exact' }
+    sorts = {
+      'exact',
+      'score',
+      'sort_text'
+    }
   },
 
   sources = {
