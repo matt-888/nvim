@@ -144,7 +144,7 @@ require('mini.jump').setup()
 local jump2d = require('mini.jump2d')
 
 jump2d.setup({
-  spotter = jump2d.gen_pattern_spotter('[^%s%p]+'),
+  spotter = jump2d.gen_spotter.pattern('[^%s%p]+'),
   view = { dim = true, n_steps_ahead = 2 },
 })
 
